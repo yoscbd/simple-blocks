@@ -5,10 +5,10 @@
  * Requires at least: 5.7
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:           YBD
+ * Author:            Ali Alaa
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       text-box1
+ * Text Domain:       text-box
  *
  * @package           blocks-course
  */
@@ -24,3 +24,9 @@ function blocks_course_text_box_block_init() {
 	register_block_type_from_metadata( __DIR__ );
 }
 add_action( 'init', 'blocks_course_text_box_block_init' );
+
+function wpdc_enable_gutenberg_custom_support() {
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'custom-line-height' );
+}
+add_action( 'after_setup_theme', 'wpdc_enable_gutenberg_custom_support' );
